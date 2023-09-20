@@ -1,0 +1,104 @@
+﻿@model QuanLyBanSach.Models.KhachHang
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("POST"))
+{
+    @Html.AntiForgeryToken()
+
+    <h2 class="text-center mt-3">Đăng ký Thành Viên</h2>
+    <hr/>
+    <div class="form-horizontal d-flex flex-column justify-content-center align-items-center">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group d-flex align-items-center justify-content-between">
+            @Html.LabelFor(model => model.HoTen, "Họ Tên", htmlAttributes: new { @class = "control-label flex-grow-1" })
+
+            <div class="flex-grow-1">
+                @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+                <div class="text-danger">
+                    @ViewData["LoiHoTen"]
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group d-flex align-items-center justify-content-between">
+            @Html.LabelFor(model => model.TaiKhoan, "Tài Khoản", htmlAttributes: new { @class = "control-label flex-grow-1" })
+            <div class="flex-grow-1">
+                @Html.EditorFor(model => model.TaiKhoan, new { htmlAttributes = new { @class = "form-control" } })
+                <div class="text-danger">
+                    @ViewData["LoiTaiKhoan"]
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group d-flex align-items-center justify-content-between">
+            @Html.LabelFor(model => model.MatKhau, "Mật Khẩu", htmlAttributes: new { @class = "control-label flex-grow-1" })
+            <div class="flex-grow-1">
+                <input class="form-control text-box single-line" id="MatKhau" name="MatKhau" type="password" value="" />
+                <div class="text-danger">
+                    @ViewData["LoiMatKhau"]
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group d-flex align-items-center justify-content-between">
+            <label class="control-label flex-grow-1" for="nhapLaiMatKhau">
+                Nhập lại mật khẩu
+            </label>
+            <div class="flex-grow-1">
+                <input class="form-control text-box single-line" id="MatKhau" name="MatKhauNhapLai" type="password" value="" />
+                <div class="text-danger">
+                    @ViewData["LoiMatKhauNhapLai"]
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group d-flex align-items-center justify-content-between">
+            @Html.LabelFor(model => model.Email, "Email", htmlAttributes: new { @class = "control-label flex-grow-1" })
+            <div class="flex-grow-1">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                <div class="text-danger">
+                    @ViewData["LoiEmail"]
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group d-flex align-items-center justify-content-between">
+            @Html.LabelFor(model => model.DiaChiKH, "Địa chỉ", htmlAttributes: new { @class = "control-label flex-grow-1" })
+            <div class="flex-grow-1">
+                @Html.EditorFor(model => model.DiaChiKH, new { htmlAttributes = new { @class = "form-control" } })
+                <div class="text-danger">
+                    @ViewData["LoiDiaChiKH"]
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group d-flex align-items-center justify-content-between">
+            @Html.LabelFor(model => model.DienThoaiKH, "Điện thoại", htmlAttributes: new { @class = "control-label flex-grow-1" })
+            <div class="flex-grow-1">
+                @Html.EditorFor(model => model.DienThoaiKH, new { htmlAttributes = new { @class = "form-control" } })
+                <div class="text-danger">
+                    @ViewData["LoiDienThoaiKH"]
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group d-flex align-items-center justify-content-between">
+            @Html.LabelFor(model => model.NgaySinh, "Ngày sinh", htmlAttributes: new { @class = "control-label flex-grow-1" })
+            <div class="flex-grow-1">
+                <input class="form-control" data-val="true" data-val-date="The field NgaySinh must be a date." id="NgaySinh" name="NgaySinh" type="date" value="" />
+                <div class="text-danger">
+                    @ViewData["LoiNgaySinh"]
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group d-flex align-items-center justify-content-between">
+            <input type="submit" value="Đăng ký" class="btn btn-primary btn-block" />
+        </div>
+    </div>
+}
+
+
